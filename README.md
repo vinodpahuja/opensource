@@ -1,1 +1,1 @@
-vinodpahuja.github.io/opensource
+https://vinodpahuja.github.io/opensource
