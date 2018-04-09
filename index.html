@@ -2,71 +2,40 @@
 
 <html>
   <head>
-    <title>Twitter &hearts; Open Source</title>
+    <title>I &hearts; Open Source</title>
     <link rel="stylesheet" type="text/css" href="assets/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/grid.css">
     <link rel="stylesheet" type="text/css" href="assets/style.css">
-    <link href="//abs.twimg.com/favicons/favicon.ico" rel="shortcut icon" type="image/x-icon">
-    <link rel="mask-icon" sizes="any" href="https://abs.twimg.com/a/1468984401/img/t1/favicon.svg" color="#55acee">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A listing of open source projects from Twitter.">
+    <meta name="description" content="A listing of open source projects.">
 
-    <meta name="twitter:url" content="https://twitter.github.io" />
-    <meta name="twitter:creator" content="@TwitterOSS" />
-    <meta name="twitter:site" content="@TwitterOSS" />
-    <meta name="twitter:title" content="Twitter <3 Open Source" />
-    <meta name="twitter:description" content="A listing of open source projects from Twitter." />
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:image" content="https://g.twimg.com/eng/theme/eng-home-open-source.png" />
   </head>
   <body>
     <div id="wrapper" class="grid clearfix">
-      <div id="main" class="grid-1">
-        <div id="logo"><h1>Twitter Open Source</h1></div>
-        <h1>Twitter is built on open source software.</h1>
-        <p>Want to help? <a href="https://careers.twitter.com/">Join the Flock</a></p>
-        <p>More about <a href="https://engineering.twitter.com/">Twitter Engineering</a></p>
-        <p>&nbsp;</p>
-        <p><a href="https://brand.twitter.com/">Logos and other goodies</a></p>
+      <div id="" class="grid-1 alpha header" >
+		<h1>&nbsp;&nbsp;&nbsp; I &hearts; Open Source</h1>
       </div>
 
       <div class="grid grid-3">
         <div id="statistics" class="grid-1 alpha header">
           <h1>Statistics</h1>
           <p>
-            <a href="https://github.com/twitter/repositories"><span id="num-repos"><img src="assets/spinner.gif" /></span> public repos</a>
-            <br>
-            <a href="https://github.com/twitter?tab=members"><span id="num-members"><img src="assets/spinner.gif" /></span> members</a>
+            <a href="https://github.com/vinodpahuja/repositories"><span id="num-repos"><img src="assets/spinner.gif" /></span> public repos</a>
           </p>
-          <p class="email"><a href="mailto:opensource@twitter.com">opensource@twitter.com</a></p>
         </div>
 
         <div id="recently-updated" class="grid-2 omega header">
-          <h1>Recently updated <a href="https://github.com/twitter/repositories">View All on GitHub</a></h1>
+          <h1>Recently updated <a href="https://github.com/vinodpahuja/repositories">View All on GitHub</a></h1>
           <ol id="recently-updated-repos"></ol>
         </div>
       </div>
 
-      <div class="grid grid-3">
+      <div class="grid">
         <input class="search-box" type="text" name="search" placeholder="Search by name, description or language..." />
       </div>
 
       <ol id="repos"></ol>
     </div>
-    <script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-39101739-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-    </script>
     <script type="text/javascript" src="assets/jquery-1.7.1.min.js"></script>
     <script type="text/javascript" src="assets/strftime.js"></script>
     <script type="text/javascript" src="assets/fuse.min.js"></script>
@@ -74,36 +43,14 @@
     (function ($, undefined) {
 
       // Put custom repo URL's in this object, keyed by repo name.
-      var repoUrls = {
-        "twemoji": "https://twitter.github.io/twemoji/",
-        "finagle": "https://twitter.github.io/finagle/",
-        "hogan.js": "https://twitter.github.io/hogan.js/",
-        "heron": "https://twitter.github.io/heron/",
-        "distributedlog": "https://bookkeeper.apache.org/distributedlog/",
-        "labella.js": "https://twitter.github.io/labella.js/",
-        "pants": "https://pantsbuild.github.io/",
-        "scala_school": "https://twitter.github.io/scala_school/",
-        "finatra": "https://twitter.github.io/finatra/",
-        "twitter-server": "https://twitter.github.io/twitter-server/",
-        "twisitor": "https://twitter.github.io/twisitor/",
-        "scrooge": "https://twitter.github.io/scrooge/",
-        "util": "https://twitter.github.io/util/",
-        "commons": "https://twitter.github.io/commons/",
-        "typeahead.js": "https://twitter.github.io/typeahead.js/",
-        "plumage.js": "https://twitter.github.io/plumage.js/",
-        "recess": "https://twitter.github.io/recess/",
-        "iago": "https://twitter.github.io/iago/",
-        "ospriet": "https://twitter.github.io/ospriet/"
-      };
+      var repoUrls = {};
 
       function repoUrl(repo) {
         return repoUrls[repo.name] || repo.html_url;
       }
 
       // Put custom repo descriptions in this object, keyed by repo name.
-      var repoDescriptions = {
-        "naggati2": "A protocol builder for Netty using Scala 2.8"
-      };
+      var repoDescriptions = {};
 
       /* Global Search Result, updated only once after fetching repos from api.github.com */
       var listOfRepos = [];
@@ -147,7 +94,7 @@
         repos = repos || [];
         page = page || 1;
 
-        var uri = "https://api.github.com/orgs/twitter/repos?callback=?"
+        var uri = "https://api.github.com/users/vinodpahuja/repos?callback=?"
                 + "&per_page=100"
                 + "&page="+page;
 
@@ -223,7 +170,7 @@
           }
         });
       }
-      getNumMembers();
+      //getNumMembers();
 
       /* Search implementation starts */
       var searchResult = listOfRepos;  // Search Result initialization
